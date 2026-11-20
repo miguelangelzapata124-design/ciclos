@@ -1,0 +1,4 @@
+let formulario=document.getElementById("formulario"),mensaje=document.getElementById("mensaje"),intentosTexto=document.getElementById("intentos"),registro=document.getElementById("registro");
+formulario.addEventListener("submit",procesarFormulario);
+function procesarFormulario(evento){evento.preventDefault();let contrasenaCorrecta="Sena2026",intentos=0,maxIntentos=3,accesoConcedido=false;registro.innerHTML="";
+while(intentos<maxIntentos&&accesoConcedido===false){let contrasenaIngresada=document.getElementById("contrasena"+(intentos+1)).value;intentos++;let fila=document.createElement("li");if(contrasenaIngresada===contrasenaCorrecta){accesoConcedido=true;fila.textContent="Intento "+intentos+": correcta";}else{fila.textContent="Intento "+intentos+": incorrecta";}registro.appendChild(fila);}intentosTexto.textContent=intentos;mensaje.textContent=accesoConcedido?"Bienvenido. Acceso concedido.":"Acceso bloqueado. Se agotaron los intentos.";}

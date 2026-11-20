@@ -1,0 +1,6 @@
+let formulario=document.getElementById("formulario"), mensaje=document.getElementById("mensaje"), cantidadTexto=document.getElementById("cantidad"), subtotalTexto=document.getElementById("subtotal"), descuentoTexto=document.getElementById("descuento"), totalTexto=document.getElementById("total");
+formulario.addEventListener("submit",procesarFormulario);
+function procesarFormulario(evento){evento.preventDefault();let precios=document.getElementById("precios").value.split(","),subtotal=0,cantidad=0,posicion=0,precio=parseFloat(precios[posicion].trim()),huboInvalido=false;
+while(posicion<precios.length&&precio!==0){if(Number.isNaN(precio)||precio<0){huboInvalido=true;}else{subtotal+=precio;cantidad++;}posicion++;if(posicion<precios.length){precio=parseFloat(precios[posicion].trim());}}
+let descuento=subtotal>200000?subtotal*0.1:0,total=subtotal-descuento;cantidadTexto.textContent=cantidad;subtotalTexto.textContent="$"+subtotal.toLocaleString("es-CO");descuentoTexto.textContent="$"+descuento.toLocaleString("es-CO");totalTexto.textContent="$"+total.toLocaleString("es-CO");
+if(cantidad===0){mensaje.textContent="No se registraron productos.";}else if(subtotal>200000){mensaje.textContent="Se aplicó un descuento del 10 %.";}else{mensaje.textContent="Compra calculada.";}if(huboInvalido){mensaje.textContent+=" Se omitieron los precios inválidos o negativos.";}}

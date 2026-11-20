@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reto final: Cajero automático</title>
+</head>
+<body>
+<header><a href="index.html">← Volver al menú</a><h1>Reto final: Cajero automático</h1></header>
+<main><p>Simula un cajero automático. Operaciones separadas por punto y coma: 1 consultar, 2:monto depositar, 3:monto retirar y 4 salir.</p><form id="formulario"><label for="titularEntrada">Nombre del titular:</label><input type="text" id="titularEntrada" required><label for="saldoEntrada">Saldo inicial:</label><input type="number" id="saldoEntrada" min="0" step="any" required><label for="operacionesEntrada">Operaciones:</label><textarea id="operacionesEntrada" rows="4" required></textarea><button type="submit">Iniciar sesión en el cajero</button></form><section><h2>Resultados</h2><p id="mensaje">Aún no hay datos.</p><ul id="historial"></ul><p>Titular: <strong id="titular">—</strong></p><p>Saldo final: <strong id="saldoFinal">—</strong></p><p>Total depositado: <strong id="totalDepositado">—</strong></p><p>Total retirado: <strong id="totalRetirado">—</strong></p><p>Operaciones exitosas: <strong id="operaciones">—</strong></p></section></main>
+<script src="js/reto.js"></script>
+</body>
+</html>
